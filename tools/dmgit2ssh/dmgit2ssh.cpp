@@ -82,7 +82,7 @@ int main(int argc, char* argv[])
 		strGit = strGit.substr(0, strGit.find('\n'));
 #else
 		strGit = strGit.substr(0, strGit.find('\n')); 
-		strGit = strGit.substr(strGit.find('\t'), strGit.size());
+		strGit = strGit.substr(strGit.find('\t')+1, strGit.size());
 #endif
         std::string strCompare = strGit.substr(0, strlen("https"));
         if (strCompare.compare("https") != 0)
