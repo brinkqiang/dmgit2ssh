@@ -7,7 +7,7 @@ int main( int argc, char* argv[] )
 
     if (NULL != execute)
     {
-        execute->exec("echo cmd");
+        std::string strGit = execute->exec("git remote -v");
     }
 
     return 0;

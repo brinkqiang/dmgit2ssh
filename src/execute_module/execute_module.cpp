@@ -20,47 +20,46 @@
 // SOFTWARE.
 
 #include "execute_module.h"
+
+#include <memory>
+#include <iostream>
+#include <stdio.h>
+
 #define BUFFER_SIZE 256
 
 #ifdef WIN32
 #define popen _popen
 #define pclose _pclose
-
-#include <windows.h>
-#include <tlhelp32.h>
-#include <stdio.h>
-
 #endif
-#include <memory>
 
 std::string DMExecute(const char* cmd)
 {
-    std::string result;
+	std::string result;
 
-    std::shared_ptr<FILE> pipe(popen(cmd, "r"), pclose);
+	std::shared_ptr<FILE> pipe(popen(cmd, "r"), pclose);
 
-    if (!pipe)
-    {
-        return result;
-    }
+	if (!pipe)
+	{
+		return result;
+	}
 
-    while (!feof(pipe.get()))
-    {
-        char szBuf[BUFFER_SIZE + 1] = { 0 };
+	while (!feof(pipe.get()))
+	{
+		char szBuf[BUFFER_SIZE + 1] = { 0 };
 
-        if (fgets(szBuf, BUFFER_SIZE, pipe.get()) != nullptr)
-        {
-            result += szBuf;
-        }
-    }
+		if (fgets(szBuf, BUFFER_SIZE, pipe.get()) != nullptr)
+		{
+			result += szBuf;
+		}
+	}
 
-    return result;
+	return result;
 }
 
 static inline uint32_t GetTickCount32()
 {
 #ifdef _MSC_VER
-    return ::GetTickCount();
+	return ::GetTickCount();
 #else
     struct timespec ts = { 0 };
     clock_gettime(CLOCK_MONOTONIC, &ts);
