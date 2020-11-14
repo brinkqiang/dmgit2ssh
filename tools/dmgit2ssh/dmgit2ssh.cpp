@@ -77,6 +77,9 @@ int main(int argc, char* argv[])
     if (NULL != execute)
     {
         std::string strGit = execute->exec("git remote -v | awk \"{ print $2 }\"");
+
+		strGit = strGit.substr(0, strGit.find('\n'));
+
         std::string strCompare = strGit.substr(0, strlen("https"));
         if (strCompare.compare("https") != 0)
         {
