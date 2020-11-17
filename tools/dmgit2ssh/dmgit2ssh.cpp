@@ -24,7 +24,7 @@ int https2ssh(std::string strGit, Iexecute* execute)
 
 	std::string strCmd = "https://" + strGitUrl + "/" + strName + "/{}";
 	fmt::scan(strGit, strCmd, strProject);
-	strProject = strProject.substr(0, strProject.find('.'));
+	strProject = strProject.substr(0, strProject.find_last_of('.'));
 
 
 	std::string strUrl = fmt::format("git remote set-url origin git@{}:{}/{}.git", strGitUrl, strName, strProject);
@@ -58,7 +58,7 @@ int ssh2https(std::string strGit, Iexecute* execute)
 
 	std::string strCmd = "git@" + strGitUrl + ":" + strName + "/{}";
 	fmt::scan(strGit, strCmd, strProject);
-	strProject = strProject.substr(0, strProject.find('.'));
+	strProject = strProject.substr(0, strProject.find_last_of('.'));
 
 	std::string strUrl = fmt::format("git remote set-url origin https://{}/{}/{}.git", strGitUrl, strName, strProject);
 
