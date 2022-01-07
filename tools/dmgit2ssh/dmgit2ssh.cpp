@@ -31,8 +31,7 @@ int https2ssh(std::string strGit, Iexecute* execute)
 
 	std::string strSSH = execute->exec(strUrl);
 
-	std::cout << fmt::format("https://{}/{}/{}.git", strGitUrl, strName, strProject) << std::endl;
-	std::cout << fmt::format("git@{}:{}/{}.git", strGitUrl, strName, strProject) << std::endl;
+	std::cout << fmt::format("convert https://{0}/{1}/{2}.git -> git@{0}:{1}/{2}.git", strGitUrl, strName, strProject) << std::endl;
 
 	return 0;
 }
@@ -64,8 +63,7 @@ int ssh2https(std::string strGit, Iexecute* execute)
 
 	std::string strHTTPS = execute->exec(strUrl);
 
-	std::cout << fmt::format("https://{}/{}/{}.git", strGitUrl, strName, strProject) << std::endl;
-	std::cout << fmt::format("git@{}:{}/{}.git", strGitUrl, strName, strProject) << std::endl;
+	std::cout << fmt::format("convert git@{0}:{1}/{2}.git -> https://{0}/{1}/{2}.git", strGitUrl, strName, strProject) << std::endl;
 
 	return 0;
 }
