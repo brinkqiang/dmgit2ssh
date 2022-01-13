@@ -16,16 +16,14 @@ IF (WIN32)
     ADD_CUSTOM_COMMAND(
         TARGET dmgit2ssh
         PRE_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_if_different
-        ${CMAKE_CURRENT_SOURCE_DIR}/win/awk.exe
-        $<TARGET_FILE_DIR:dmgit2ssh>
-
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_CURRENT_SOURCE_DIR}/win/awk.exe $<TARGET_FILE_DIR:dmgit2ssh>
+        )
+        
     INSTALL(TARGETS dmgit2ssh
         RUNTIME DESTINATION bin
         LIBRARY DESTINATION lib
         ARCHIVE DESTINATION lib)
 
-)
 ELSE(WIN32)
     INCLUDE(GNUInstallDirs)
     INSTALL(TARGETS dmgit2ssh
