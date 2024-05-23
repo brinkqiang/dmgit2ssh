@@ -23,8 +23,17 @@ Copyright (c) 2013-2018 brinkqiang (brink.qiang@gmail.com)
 
 ## Intro
 dmgit2ssh
-```cpp
+
+./dmgit2ssh
 ```
+convert git@github.com:brinkqiang/dmgit2ssh.git -> https://github.com/brinkqiang/dmgit2ssh.git
+```
+./dmgit2ssh
+```
+convert https://github.com/brinkqiang/dmgit2ssh.git -> git@github.com:brinkqiang/dmgit2ssh.git
+```
+
+
 ## Contacts
 
 ## Thanks
