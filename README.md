@@ -26,6 +26,5 @@ dmgit2ssh
 ```cpp
 ```
 ## Contacts
-[![Join the chat](https://badges.gitter.im/brinkqiang/dmgit2ssh/Lobby.svg)](https://gitter.im/brinkqiang/dmgit2ssh)
 
 ## Thanks
